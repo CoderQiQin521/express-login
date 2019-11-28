@@ -8,7 +8,7 @@ const SECRET = 'iloveyou' // 密匙
 
 // app.use(express.static('public'));
 app.use(express.json())
-// app.use(cors())
+app.use(cors())
 
 /* ---------------------------------- 渲染模版 ---------------------------------- */
 app.get('/', function (req, res) {
@@ -22,7 +22,7 @@ app.get('/user', function (req, res) {
 })
 
 /* ----------------------------------- api ---------------------------------- */
-1
+// TODO: 路由拆分
 
 /**
  * @api {post} /register 用户注册
@@ -69,7 +69,7 @@ router.post('/login', async (req, res) => {
     })
   }
 
-  /* --------------------------------- 生成token -------------------------------- */
+  // 生成token
   const token = jwt.sign({
     id: user._id
   }, SECRET, {
@@ -134,7 +134,7 @@ app.get('/apidoc/index.html', (req, res) => {
   res.sendFile(__dirname + '/api/apidoc/index.html')
 })
 
-let port = process.env.PORT || 3000
+let port = process.env.PORT || 4400
 var server = app.listen(port, '127.0.0.1', function () {
   var host = server.address().address
   var port = server.address().port
