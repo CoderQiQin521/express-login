@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
+const { check, validationResult } = require('express-validator')
 const router = express.Router()
 const { User } = require('./db')
 const SECRET = 'iloveyou' // 密匙
@@ -134,9 +135,8 @@ app.get('/apidoc/index.html', (req, res) => {
   res.sendFile(__dirname + '/api/apidoc/index.html')
 })
 
-let port = process.env.PORT || 4400
-var server = app.listen(port, '127.0.0.1', function () {
-  var host = server.address().address
-  var port = server.address().port
+const server = app.listen(4400, function () {
+  const host = server.address().address
+  const port = server.address().port
   console.log('服务已启动, http://%s:%s', host, port);
 })

@@ -1,27 +1,16 @@
-@url=http://localhost:3000
-###
-GET http://localhost:3000/user/1
-
-###
-POST http://localhost:3000/user
-Content-Type: application/json; charset=utf-8
-
-{
-  "name": "齐秦",
-  "age": 28
-}
+@url=http://localhost:4400/api/
 
 ### 注册
-POST http://localhost:3000/api/register
+POST {{url}}register
 Content-Type: application/json; charset=utf-8
 
 {
-  "phone": "18538300839",
-  "password": "123456"
+  "phone": "1",
+  "password": "1"
 }
 
 ### 登录
-POST http://localhost:3000/api/login
+POST {{url}}login
 Content-Type: application/json; charset=utf-8
 
 {
@@ -30,9 +19,9 @@ Content-Type: application/json; charset=utf-8
 }
 
 ### 使用token
-GET http://localhost:3000/api/userinfo
+GET {{url}}userinfo
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZGY0NTA0Mjk3NDg0MzdkODZhZGViMyIsImlhdCI6MTU3NDkxNzcyNX0.ji4R08Kn2hmfOp0xFIDmpYYtZvz_Ll2Q4rcfttli7rs
 
 ###
-GET http://localhost:3000/api/all
+GET {{url}}all
